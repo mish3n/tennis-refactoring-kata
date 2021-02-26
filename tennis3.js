@@ -22,7 +22,8 @@ function getScore(player1Score, player2Score) {
     }
 
     let leadingPlayer = getLeadingPLayer(player1Score, player2Score);
-    if ((player1Score - player2Score) * (player1Score - player2Score) === 1) { 
+    let scoreDifference = Math.abs(player1Score - player2Score);
+    if (scoreDifference === 1) { 
         return "Advantage " + leadingPlayer;
     }
 
