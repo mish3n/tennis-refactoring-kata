@@ -30,8 +30,7 @@ function getScore(player1Points, player2Points) {
         return "Advantage " + playerInLead;
     }
 
-    if ((player1Points > 0 && player2Points === 0) || (player2Points > 0 && player1Points === 0) || 
-        (player1Points > player2Points && player1Points < 4) || (player2Points > player1Points && player2Points < 4)) {
+    if (player1Points >= 0 && player2Points >= 0 && player1Points < 4 && player2Points < 4) {
         let P1res = getScoreName(player1Points);
         let P2res = getScoreName(player2Points);
         return P1res + "-" + P2res;
