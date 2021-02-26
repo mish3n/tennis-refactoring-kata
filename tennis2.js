@@ -21,6 +21,15 @@ function getTiedScore(player1Points, player2Points) {
     return "Deuce";
 }
 
+function getWinOrAdvantageScore(player1Points, player2Points, pointDifference) {
+    let playerInLead = getPlayerInLead(player1Points, player2Points);
+    if (pointDifference >= 2) {
+        return "Win for " + playerInLead;
+    }
+
+    return "Advantage " + playerInLead;
+}
+
 function getScore(player1Points, player2Points) {
     let pointDifference = getPointDifference(player1Points, player2Points);
 
@@ -32,13 +41,7 @@ function getScore(player1Points, player2Points) {
         return `${getScoreName(player1Points)}-${getScoreName(player2Points)}`;
     }
 
-    let playerInLead = getPlayerInLead(player1Points, player2Points);
-    
-    if (pointDifference >= 2) {
-        return "Win for " + playerInLead;
-    }
-
-    return "Advantage " + playerInLead;
+    return getWinOrAdvantageScore(player1Points, player2Points, pointDifference);
 }
 
 
