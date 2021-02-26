@@ -1,62 +1,52 @@
 'use strict';
 
-function getScoreName(P1point) {
-    if (P1point === 0) {
+function getScoreName(points) {
+    if (points === 0) {
         return "Love";
     }
-    if (P1point === 1) {
+    if (points === 1) {
         return "Fifteen";
     }
-    if (P1point === 2) {
+    if (points === 2) {
         return "Thirty";
     }
-    if (P1point === 3) {
+    if (points === 3) {
         return "Forty";
     }
 }
 
-function getScore(P1point, P2point) {
+function getScore(player1Points, player2Points) {
     var score = "";
 
-    if (P1point === P2point && P1point < 3) {
-        if (P1point === 0) {
-            score = "Love";
-        }
-        if (P1point === 1) {
-            score = "Fifteen";
-        }
-        if (P1point === 2) {
-            score = "Thirty";
-        }
+    if (player1Points === player2Points && player1Points < 3) {
+        score = getScoreName(player1Points);
         score += "-All";
     }
-    if (P1point === P2point && P1point > 2) {
+
+    if (player1Points === player2Points && player1Points > 2) {
         score = "Deuce";
     }
 
-    if ((P1point > 0 && P2point === 0) || (P2point > 0 && P1point === 0) || 
-        (P1point > P2point && P1point < 4) || (P2point > P1point && P2point < 4)) {
-        var P1res;
-        var P2res;
-        
-        P1res = getScoreName(P1point);
-        P2res = getScoreName(P2point);
+    if ((player1Points > 0 && player2Points === 0) || (player2Points > 0 && player1Points === 0) || 
+        (player1Points > player2Points && player1Points < 4) || (player2Points > player1Points && player2Points < 4)) {
+        let P1res = getScoreName(player1Points);
+        let P2res = getScoreName(player2Points);
 
         score = P1res + "-" + P2res;
     }
 
-    if (P1point > P2point && P2point >= 3) {
+    if (player1Points > player2Points && player2Points >= 3) {
         score = "Advantage player1";
     }
 
-    if (P2point > P1point && P1point >= 3) {
+    if (player2Points > player1Points && player1Points >= 3) {
         score = "Advantage player2";
     }
 
-    if (P1point >= 4 && P2point >= 0 && (P1point - P2point) >= 2) {
+    if (player1Points >= 4 && player2Points >= 0 && (player1Points - player2Points) >= 2) {
         score = "Win for player1";
     }
-    if (P2point >= 4 && P1point >= 0 && (P2point - P1point) >= 2) {
+    if (player2Points >= 4 && player1Points >= 0 && (player2Points - player1Points) >= 2) {
         score = "Win for player2";
     }
 
