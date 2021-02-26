@@ -7,7 +7,7 @@ function getScore(player1Score, player2Score) {
     let points = ["Love", "Fifteen", "Thirty", "Forty"];
 
     if(player1Score === player2Score) {
-        if ((player1Score < 4 && player2Score < 4) && (player1Score + player2Score < 6)) {
+        if (player1Score < 3) {
             return points[player1Score] + "-All";
         }
         
