@@ -1,20 +1,10 @@
 'use strict';
 
 function getScoreName(tempScore, score) {
-    switch (tempScore) {
-        case 0:
-            score += "Love";
-            break;
-        case 1:
-            score += "Fifteen";
-            break;
-        case 2:
-            score += "Thirty";
-            break;
-        case 3:
-            score += "Forty";
-            break;
-    }
+    const scores = ["Love", "Fifteen", "Thirty", "Forty"];
+
+    score += scores[tempScore];
+
     return score;
 }
 
