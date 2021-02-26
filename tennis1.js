@@ -13,21 +13,22 @@ function getTiedScore(score) {
     return "Deuce";
 }
 
+function getPlayerInLead(player1_score, player2_score) {
+    return player1_score > player2_score ? "player1" : "player2";
+}
+
 function getScore(player1_score, player2_score) {
     if (player1_score === player2_score) {
         return getTiedScore(player1_score);
     } else if (player1_score >= 4 || player2_score >= 4) {
-        var scoreDifference = player1_score - player2_score;
+        var scoreDifference = Math.abs(player1_score - player2_score);
+        let playerInLead = getPlayerInLead(player1_score, player2_score);
 
         if (scoreDifference === 1) {
-            return "Advantage player1";
-        } else if (scoreDifference === -1) {
-            return "Advantage player2";
-        } else if (scoreDifference >= 2) {
-            return "Win for player1";
-        } else {
-            return "Win for player2";
-        }
+            return `Advantage ${playerInLead}`;
+        }  
+        
+        return `Win for ${playerInLead}`;
     } else {
         return `${getScoreName(player1_score)}-${getScoreName(player2_score)}`;
     }
