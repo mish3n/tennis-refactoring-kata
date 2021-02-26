@@ -13,6 +13,10 @@ function getTiedScore(score) {
     return "Deuce";
 }
 
+function getScoreDifference(player1_score, player2_score) {
+    return Math.abs(player1_score - player2_score);
+}
+
 function getPlayerInLead(player1_score, player2_score) {
     return player1_score > player2_score ? "player1" : "player2";
 }
@@ -30,7 +34,7 @@ function getWinOrAdvantageScore(scoreDifference, playerInLead) {
 }
 
 function getScore(player1_score, player2_score) {
-    let scoreDifference = Math.abs(player1_score - player2_score);
+    let scoreDifference = getScoreDifference(player1_score, player2_score);
 
     if (scoreDifference === 0) {
         return getTiedScore(player1_score);
