@@ -10,11 +10,8 @@ function getPlayerInLead(player1Points, player2Points) {
 }
 
 function getScore(player1Points, player2Points) {
-    if (player1Points === player2Points && player1Points < 3) {
-        return getScoreName(player1Points) + "-All";
-    }
-
-    if (player1Points === player2Points && player1Points > 2) {
+    if (player1Points === player2Points) {
+        if (player1Points < 3) return getScoreName(player1Points) + "-All";
         return "Deuce";
     }
 
