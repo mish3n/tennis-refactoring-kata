@@ -95,6 +95,7 @@ function getScore(P1point, P2point) {
     if (P2point >= 4 && P1point >= 0 && (P2point - P1point) >= 2) {
         score = "Win for player2";
     }
+
     return score;
 }
 
