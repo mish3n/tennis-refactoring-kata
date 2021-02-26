@@ -11,18 +11,15 @@ function getScore(m_score1, m_score2) {
     if (m_score1 === m_score2) {
         switch (m_score1) {
             case 0:
-                score = "Love-All";
-                break;
             case 1:
-                score = "Fifteen-All";
-                break;
             case 2:
-                score = "Thirty-All";
+                score = `${getScoreName(m_score1)}-All`;
                 break;
             default:
                 score = "Deuce";
                 break;
         }
+
     } else if (m_score1 >= 4 || m_score2 >= 4) {
         var minusResult = m_score1 - m_score2;
 
