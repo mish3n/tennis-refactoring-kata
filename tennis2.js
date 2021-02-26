@@ -31,15 +31,8 @@ function getScore(player1Points, player2Points) {
         score = "Deuce";
     }
 
-    if ((player1Points > 0 && player2Points === 0) || (player2Points > 0 && player1Points === 0) || 
-        (player1Points > player2Points && player1Points < 4) || (player2Points > player1Points && player2Points < 4)) {
-        let P1res = getScoreName(player1Points);
-        let P2res = getScoreName(player2Points);
-
-        score = P1res + "-" + P2res;
-    }
-
     let playerInLead = getPlayerInLead(player1Points, player2Points);
+
     if ((player1Points > player2Points && player2Points >= 3) || 
         (player2Points > player1Points && player1Points >= 3)) {
         score = "Advantage " + playerInLead;
@@ -48,6 +41,13 @@ function getScore(player1Points, player2Points) {
     if ((player1Points >= 4 && player2Points >= 0 && (player1Points - player2Points) >= 2) || 
         (player2Points >= 4 && player1Points >= 0 && (player2Points - player1Points) >= 2)) {
         score = "Win for " + playerInLead;
+    }
+
+    if ((player1Points > 0 && player2Points === 0) || (player2Points > 0 && player1Points === 0) || 
+        (player1Points > player2Points && player1Points < 4) || (player2Points > player1Points && player2Points < 4)) {
+        let P1res = getScoreName(player1Points);
+        let P2res = getScoreName(player2Points);
+        if(!score.length) score = P1res + "-" + P2res;
     }
 
     return score;
