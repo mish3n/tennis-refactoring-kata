@@ -4,10 +4,11 @@ function getScore(player1Score, player2Score) {
     var score;
     let player1Name = "player1";
     let player2Name = "player2";
+    let points = ["Love", "Fifteen", "Thirty", "Forty"];
 
     if(player1Score === player2Score) {
         if ((player1Score < 4 && player2Score < 4) && (player1Score + player2Score < 6)) {
-            var points = ["Love", "Fifteen", "Thirty", "Forty"];
+            
             if(player1Score === player2Score) {
                 return points[player1Score] + "-All";
             }
@@ -22,7 +23,6 @@ function getScore(player1Score, player2Score) {
     }
 
     if ((player1Score < 4 && player2Score < 4) && (player1Score + player2Score < 6)) {
-        var points = ["Love", "Fifteen", "Thirty", "Forty"];
         if(player1Score === player2Score) {
             return points[player1Score] + "-All";
         }
