@@ -5,17 +5,17 @@ function getScoreName(score) {
     return scores[score];
 }
 
-function getScore(m_score1, m_score2) {
+function getScore(player1_score, player2_score) {
     var score = "";
 
-    if (m_score1 === m_score2) {
-        if(m_score1 < 3) {
-            score = `${getScoreName(m_score1)}-All`;
+    if (player1_score === player2_score) {
+        if(player1_score < 3) {
+            score = `${getScoreName(player1_score)}-All`;
         } else {
             score = "Deuce";
         }
-    } else if (m_score1 >= 4 || m_score2 >= 4) {
-        var minusResult = m_score1 - m_score2;
+    } else if (player1_score >= 4 || player2_score >= 4) {
+        var minusResult = player1_score - player2_score;
 
         if (minusResult === 1) {
             score = "Advantage player1";
@@ -27,7 +27,7 @@ function getScore(m_score1, m_score2) {
             score = "Win for player2";
         }
     } else {
-        score = `${getScoreName(m_score1)}-${getScoreName(m_score2)}`;
+        score = `${getScoreName(player1_score)}-${getScoreName(player2_score)}`;
     }
 
     return score;
