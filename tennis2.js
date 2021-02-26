@@ -18,6 +18,12 @@ function getScore(player1Points, player2Points) {
         return "Deuce";
     }
 
+    if (player1Points < 4 && player2Points < 4) {
+        let P1res = getScoreName(player1Points);
+        let P2res = getScoreName(player2Points);
+        return P1res + "-" + P2res;
+    }
+
     let playerInLead = getPlayerInLead(player1Points, player2Points);
     let pointDifference = Math.abs(player1Points - player2Points);
     if ((player1Points >= 4 && player2Points >= 0 ||
@@ -28,12 +34,6 @@ function getScore(player1Points, player2Points) {
 
     if ((player1Points > 3 || player2Points > 3) && pointDifference) {
         return "Advantage " + playerInLead;
-    }
-
-    if (player1Points >= 0 && player2Points >= 0 && player1Points < 4 && player2Points < 4) {
-        let P1res = getScoreName(player1Points);
-        let P2res = getScoreName(player2Points);
-        return P1res + "-" + P2res;
     }
 }
 
