@@ -32,7 +32,7 @@ function getScore(player1Points, player2Points) {
         return "Win for " + playerInLead;
     }
 
-    if ((player1Points > 3 || player2Points > 3) && pointDifference) {
+    if (pointDifference) {
         return "Advantage " + playerInLead;
     }
 }
