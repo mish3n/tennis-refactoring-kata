@@ -13,10 +13,19 @@ function getPointDifference(player1Points, player2Points) {
     return Math.abs(player1Points - player2Points);
 }
 
+function getTiedScore(player1Points, player2Points) {
+    if (player1Points < 3) {
+        return getScoreName(player1Points) + "-All";
+    }
+
+    return "Deuce";
+}
+
 function getScore(player1Points, player2Points) {
-    if (player1Points === player2Points) {
-        if (player1Points < 3) return getScoreName(player1Points) + "-All";
-        return "Deuce";
+    let pointDifference = getPointDifference(player1Points, player2Points);
+
+    if (pointDifference === 0) {
+        return getTiedScore(player1Points, player2Points);
     }
 
     if (player1Points < 4 && player2Points < 4) {
@@ -24,8 +33,7 @@ function getScore(player1Points, player2Points) {
     }
 
     let playerInLead = getPlayerInLead(player1Points, player2Points);
-    let pointDifference = getPointDifference(player1Points, player2Points);
-
+    
     if (pointDifference >= 2) {
         return "Win for " + playerInLead;
     }
