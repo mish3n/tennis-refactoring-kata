@@ -9,6 +9,10 @@ function getPlayerInLead(player1Points, player2Points) {
     return player1Points > player2Points ? "player1" : "player2";
 }
 
+function getPointDifference(player1Points, player2Points) {
+    return Math.abs(player1Points - player2Points);
+}
+
 function getScore(player1Points, player2Points) {
     if (player1Points === player2Points) {
         if (player1Points < 3) return getScoreName(player1Points) + "-All";
@@ -20,7 +24,7 @@ function getScore(player1Points, player2Points) {
     }
 
     let playerInLead = getPlayerInLead(player1Points, player2Points);
-    let pointDifference = Math.abs(player1Points - player2Points);
+    let pointDifference = getPointDifference(player1Points, player2Points);
 
     if (pointDifference >= 2) {
         return "Win for " + playerInLead;
