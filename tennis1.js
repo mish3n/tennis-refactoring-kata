@@ -5,15 +5,19 @@ function getScoreName(score) {
     return scores[score];
 }
 
+function getTiedScore(score) {
+    if (score < 3) {
+        return `${getScoreName(score)}-All`;
+    }
+    
+    return "Deuce";
+}
+
 function getScore(player1_score, player2_score) {
     var score = "";
 
     if (player1_score === player2_score) {
-        if(player1_score < 3) {
-            score = `${getScoreName(player1_score)}-All`;
-        } else {
-            score = "Deuce";
-        }
+        score = getTiedScore(player1_score, score);
     } else if (player1_score >= 4 || player2_score >= 4) {
         var minusResult = player1_score - player2_score;
 
