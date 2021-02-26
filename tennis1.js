@@ -14,27 +14,23 @@ function getTiedScore(score) {
 }
 
 function getScore(player1_score, player2_score) {
-    var score = "";
-
     if (player1_score === player2_score) {
-        score = getTiedScore(player1_score, score);
+        return getTiedScore(player1_score);
     } else if (player1_score >= 4 || player2_score >= 4) {
-        var minusResult = player1_score - player2_score;
+        var scoreDifference = player1_score - player2_score;
 
-        if (minusResult === 1) {
-            score = "Advantage player1";
-        } else if (minusResult === -1) {
-            score = "Advantage player2";
-        } else if (minusResult >= 2) {
-            score = "Win for player1";
+        if (scoreDifference === 1) {
+            return "Advantage player1";
+        } else if (scoreDifference === -1) {
+            return "Advantage player2";
+        } else if (scoreDifference >= 2) {
+            return "Win for player1";
         } else {
-            score = "Win for player2";
+            return "Win for player2";
         }
     } else {
-        score = `${getScoreName(player1_score)}-${getScoreName(player2_score)}`;
+        return `${getScoreName(player1_score)}-${getScoreName(player2_score)}`;
     }
-
-    return score;
 }
 
 module.exports = getScore;
