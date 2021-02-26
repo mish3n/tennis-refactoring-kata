@@ -1,11 +1,8 @@
 'use strict';
 
-function getScoreName(tempScore, score) {
+function getScoreName(score) {
     const scores = ["Love", "Fifteen", "Thirty", "Forty"];
-
-    score += scores[tempScore];
-
-    return score;
+    return scores[score];
 }
 
 function getScore(m_score1, m_score2) {
@@ -48,7 +45,7 @@ function getScore(m_score1, m_score2) {
                 tempScore = m_score2;
             }
 
-            score = getScoreName(tempScore, score);
+            score += getScoreName(tempScore);
         }
     }
 
