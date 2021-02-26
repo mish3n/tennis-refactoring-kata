@@ -24,31 +24,9 @@ function getScore(P1point, P2point) {
         var P1res;
         var P2res;
         
-        if (P1point === 0) {
-            P1res = "Love";
-        }
-        if (P1point === 1) {
-            P1res = "Fifteen";
-        }
-        if (P1point === 2) {
-            P1res = "Thirty";
-        }
-        if (P1point === 3) {
-            P1res = "Forty";
-        }
+        P1res = getScoreName(P1point);
+        P2res = getScoreName(P2point);
 
-        if (P2point === 0) {
-            P2res = "Love";
-        }
-        if (P2point === 1) {
-            P2res = "Fifteen";
-        }
-        if (P2point === 2) {
-            P2res = "Thirty";
-        }
-        if (P2point === 3) {
-            P2res = "Forty";
-        }
         score = P1res + "-" + P2res;
     }
 
@@ -72,3 +50,18 @@ function getScore(P1point, P2point) {
 
 
 module.exports = getScore;
+function getScoreName(P1point, P1res) {
+    if (P1point === 0) {
+        return "Love";
+    }
+    if (P1point === 1) {
+        return "Fifteen";
+    }
+    if (P1point === 2) {
+        return "Thirty";
+    }
+    if (P1point === 3) {
+        return "Forty";
+    }
+}
+
