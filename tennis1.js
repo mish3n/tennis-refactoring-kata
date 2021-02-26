@@ -37,16 +37,7 @@ function getScore(m_score1, m_score2) {
             score = "Win for player2";
         }
     } else {
-        for (var i = 1; i < 3; i++) {
-            if (i === 1) {
-                tempScore = m_score1;
-            } else {
-                score += "-";
-                tempScore = m_score2;
-            }
-
-            score += getScoreName(tempScore);
-        }
+        score = `${getScoreName(m_score1)}-${getScoreName(m_score2)}`;
     }
 
     return score;
