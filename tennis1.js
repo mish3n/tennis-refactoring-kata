@@ -1,5 +1,23 @@
 'use strict';
 
+function getScoreName(tempScore, score) {
+    switch (tempScore) {
+        case 0:
+            score += "Love";
+            break;
+        case 1:
+            score += "Fifteen";
+            break;
+        case 2:
+            score += "Thirty";
+            break;
+        case 3:
+            score += "Forty";
+            break;
+    }
+    return score;
+}
+
 function getScore(m_score1, m_score2) {
     var score = "";
     var tempScore = 0;
@@ -40,20 +58,7 @@ function getScore(m_score1, m_score2) {
                 tempScore = m_score2;
             }
 
-            switch (tempScore) {
-                case 0:
-                    score += "Love";
-                    break;
-                case 1:
-                    score += "Fifteen";
-                    break;
-                case 2:
-                    score += "Thirty";
-                    break;
-                case 3:
-                    score += "Forty";
-                    break;
-            }
+            score = getScoreName(tempScore, score);
         }
     }
 
