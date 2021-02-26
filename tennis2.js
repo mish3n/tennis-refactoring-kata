@@ -16,9 +16,7 @@ function getScore(player1Points, player2Points) {
     }
 
     if (player1Points < 4 && player2Points < 4) {
-        let P1res = getScoreName(player1Points);
-        let P2res = getScoreName(player2Points);
-        return P1res + "-" + P2res;
+        return `${getScoreName(player1Points)}-${getScoreName(player2Points)}`;
     }
 
     let playerInLead = getPlayerInLead(player1Points, player2Points);
