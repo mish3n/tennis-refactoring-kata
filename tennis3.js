@@ -14,7 +14,7 @@ function getScore(player1Score, player2Score) {
         return "Deuce";
     }
 
-    if ((player1Score < 4 && player2Score < 4) && (player1Score + player2Score < 6)) {
+    if ((player1Score < 4 && player2Score < 4)) {
         return  points[player1Score] + "-" + points[player2Score];
     } else {
         score = player1Score > player2Score ? player1Name : player2Name;
