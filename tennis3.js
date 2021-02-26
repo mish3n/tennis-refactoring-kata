@@ -8,15 +8,10 @@ function getScore(player1Score, player2Score) {
 
     if(player1Score === player2Score) {
         if ((player1Score < 4 && player2Score < 4) && (player1Score + player2Score < 6)) {
-            
-            if(player1Score === player2Score) {
-                return points[player1Score] + "-All";
-            }
+            return points[player1Score] + "-All";
             return  points[player1Score] + "-" + points[player2Score];
         } else {
-            if (player1Score === player2Score) {
-                return "Deuce";
-            }
+            return "Deuce";
             score = player1Score > player2Score ? player1Name : player2Name;
             return ((player1Score - player2Score) * (player1Score - player2Score) === 1) ? "Advantage " + score : "Win for " + score;
         }
