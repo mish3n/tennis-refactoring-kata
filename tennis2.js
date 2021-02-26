@@ -1,5 +1,20 @@
 'use strict';
 
+function getScoreName(P1point) {
+    if (P1point === 0) {
+        return "Love";
+    }
+    if (P1point === 1) {
+        return "Fifteen";
+    }
+    if (P1point === 2) {
+        return "Thirty";
+    }
+    if (P1point === 3) {
+        return "Forty";
+    }
+}
+
 function getScore(P1point, P2point) {
     var score = "";
 
@@ -50,18 +65,3 @@ function getScore(P1point, P2point) {
 
 
 module.exports = getScore;
-function getScoreName(P1point, P1res) {
-    if (P1point === 0) {
-        return "Love";
-    }
-    if (P1point === 1) {
-        return "Fifteen";
-    }
-    if (P1point === 2) {
-        return "Thirty";
-    }
-    if (P1point === 3) {
-        return "Forty";
-    }
-}
-
