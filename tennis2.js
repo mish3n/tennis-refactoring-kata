@@ -26,15 +26,12 @@ function getScore(player1Points, player2Points) {
 
     let playerInLead = getPlayerInLead(player1Points, player2Points);
     let pointDifference = Math.abs(player1Points - player2Points);
-    if ((player1Points >= 4 && player2Points >= 0 ||
-        player2Points >= 4 && player1Points >= 0) &&
-        pointDifference >= 2) {
+
+    if ((player1Points >= 4 || player2Points >= 4) && pointDifference >= 2) {
         return "Win for " + playerInLead;
     }
 
-    if (pointDifference) {
-        return "Advantage " + playerInLead;
-    }
+    return "Advantage " + playerInLead;
 }
 
 
