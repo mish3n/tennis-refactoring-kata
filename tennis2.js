@@ -15,6 +15,10 @@ function getScoreName(points) {
     }
 }
 
+function getPlayerInLead(player1Points, player2Points) {
+    return player1Points > player2Points ? "player1" : "player2";
+}
+
 function getScore(player1Points, player2Points) {
     var score = "";
 
@@ -35,19 +39,20 @@ function getScore(player1Points, player2Points) {
         score = P1res + "-" + P2res;
     }
 
+    let playerInLead = getPlayerInLead(player1Points, player2Points);
     if (player1Points > player2Points && player2Points >= 3) {
-        score = "Advantage player1";
+        score = "Advantage " + playerInLead;
     }
 
     if (player2Points > player1Points && player1Points >= 3) {
-        score = "Advantage player2";
+        score = "Advantage " + playerInLead;
     }
 
     if (player1Points >= 4 && player2Points >= 0 && (player1Points - player2Points) >= 2) {
-        score = "Win for player1";
+        score = "Win for " + playerInLead;
     }
     if (player2Points >= 4 && player1Points >= 0 && (player2Points - player1Points) >= 2) {
-        score = "Win for player2";
+        score = "Win for " + playerInLead;
     }
 
     return score;
