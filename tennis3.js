@@ -19,14 +19,14 @@ function getScore(player1Score, player2Score) {
 
     if ((player1Score < 4 && player2Score < 4)) {
         return  points[player1Score] + "-" + points[player2Score];
-    } else {
-        let leadingPlayer = getLeadingPLayer(player1Score, player2Score);
-        if ((player1Score - player2Score) * (player1Score - player2Score) === 1) { 
-            return "Advantage " + leadingPlayer;
-        }
-        
-        return "Win for " + leadingPlayer;
     }
+
+    let leadingPlayer = getLeadingPLayer(player1Score, player2Score);
+    if ((player1Score - player2Score) * (player1Score - player2Score) === 1) { 
+        return "Advantage " + leadingPlayer;
+    }
+
+    return "Win for " + leadingPlayer;
 }
 
 module.exports = getScore;
